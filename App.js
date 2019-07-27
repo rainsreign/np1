@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import Login from './pages/Login.js';
 import SignUp from './pages/SignUp.js';
 import Home from './pages/Home.js';
+import UserLottery from './pages/UserLottery.js';
 import Buy from './pages/Buy.js';
 import CheckWin from './pages/CheckWin.js';
 import MyLotto from './pages/MyLotto.js';
@@ -59,7 +60,8 @@ export default class App extends React.Component {
     return (
       // <Login />
       // <SignUp />
-      <Home />
+      // <Home />
+      <UserLottery />
     );
   }
 }

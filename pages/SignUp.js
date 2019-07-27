@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TextInput } from 'react-native';
 import styled from 'styled-components/native';
 
 
@@ -29,7 +29,7 @@ const Body = styled.View`
   margin-bottom: 30px;
 `;
 
-const Name = styled.Text`
+const Name = styled.TextInput`
   height: 50;
   width: 300;
   border-style: solid;
@@ -100,7 +100,17 @@ const Back = styled.Text`
   font-size: 20px;
 `;
 
+{/* <View style={{ height: 200, width: '100%', backgroundColor: '#ff0000' }}>
+  <SignIn>Sign Up</SignIn>
+</View> */}
+
 export default class SignUp extends React.Component {
+  state = {
+    text: ''
+  };
+
+  // this.setState({ text: 'Gladys' })
+
   render() {
     return (
       <View>
@@ -109,7 +119,11 @@ export default class SignUp extends React.Component {
             <SignIn>Sign Up</SignIn>
           </Header>
           <Body>
-            <Name>Full Name</Name>
+            <Name
+              placeholder='Full Name'
+              placeholderTextColor='#000000'
+              onChangeText={(text) => this.setState({ text: text })}
+              value={this.state.text}/>
             <UserT>Username or Email</UserT>
             <PassT>Password</PassT>
             <Phone>Phone Number</Phone>

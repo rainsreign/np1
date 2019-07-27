@@ -13,8 +13,8 @@ export default class App extends React.Component {
   render() {
     return (
       // <Login />
-      // <SignUp />
-      <Home />
+      <SignUp />
+      // <Home />
     );
   }
 }

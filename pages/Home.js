@@ -177,6 +177,83 @@ const CashOutB = styled.View`
 `;
 
 export default class Home extends React.Component {
+  state = {
+    winningNumberArray: [
+      {
+        number1: 2,
+        number2: 3,
+        number3: 4,
+        number4: 5,
+        number5: 6,
+        specialNumber1: 8
+      },
+      {
+        number1: 5,
+        number2: 7,
+        number3: 8,
+        number4: 9,
+        number5: 13,
+        specialNumber1: 23
+      },
+      {
+        number1: 4,
+        number2: 6,
+        number3: 22,
+        number4: 26,
+        number5: 30,
+        specialNumber1: 32
+      },
+      {
+        number1: 2,
+        number2: 3,
+        number3: 4,
+        number4: 5,
+        number5: 6,
+        specialNumber1: 8
+      },
+      {
+        number1: 5,
+        number2: 7,
+        number3: 8,
+        number4: 9,
+        number5: 13,
+        specialNumber1: 23
+      },
+      {
+        number1: 4,
+        number2: 6,
+        number3: 22,
+        number4: 26,
+        number5: 30,
+        specialNumber1: 32
+      },
+      {
+        number1: 2,
+        number2: 3,
+        number3: 4,
+        number4: 5,
+        number5: 6,
+        specialNumber1: 8
+      },
+      {
+        number1: 5,
+        number2: 7,
+        number3: 8,
+        number4: 9,
+        number5: 13,
+        specialNumber1: 23
+      },
+      {
+        number1: 4,
+        number2: 6,
+        number3: 22,
+        number4: 26,
+        number5: 30,
+        specialNumber1: 32
+      },
+    ]
+  };
+
   render() {
     return (
       <View>
@@ -207,18 +284,24 @@ export default class Home extends React.Component {
                 <JPWinners>NO JACKPOT WINNERS</JPWinners>
               </WinningNum>
                 <HeaderText>Previous Numbers</HeaderText>
-              <WinningNum>
-                <DrawingDate>Wednesday June 23, 2019</DrawingDate>
-                <NumbersList>
-                  <Num1 />
-                  <Num2 />
-                  <Num3 />
-                  <Num4 />
-                  <Num5 />
-                  <Num6 />
-                </NumbersList>
-                <MoreNum>View More...</MoreNum>
-              </WinningNum>
+
+              {
+                this.state.winningNumberArray.map(item => (
+                  <WinningNum>
+                    <DrawingDate>Wednesday June 23, 2019</DrawingDate>
+                    <NumbersList>
+                      <Num1><Text>{item.number1}</Text></Num1>
+                      <Num1><Text>{item.number2}</Text></Num1>
+                      <Num1><Text>{item.number3}</Text></Num1>
+                      <Num1><Text>{item.number4}</Text></Num1>
+                      <Num1><Text>{item.number5}</Text></Num1>
+                      <Num6><Text>{item.specialNumber1}</Text></Num6>
+                    </NumbersList>
+                    <MoreNum>View More...</MoreNum>
+                  </WinningNum>
+                ))
+              }
+
             </ScrollView>
           <Navbar>
             <HomeB></HomeB>

@@ -289,6 +289,15 @@ const IconText = styled.Text`
   font-weight: bold;
 `;
 
+
+const RoundedRectangle = styled.View`
+  height: ${props => props.height ? props.height : '100px'};
+  width: ${props => props.width ? props.width : '200px'};
+  border-radius: 7px;
+  background-color: ${props => props.bg ? props.bg : '#d1d1d1'};
+`;
+
+
 export default class Home extends React.Component {
   state = {
     previousWinNumberArray: [
@@ -395,6 +404,57 @@ export default class Home extends React.Component {
   };
 
   render() {
+
+
+    // return (
+    //   <SafeAreaView style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+    //
+    //
+    //
+    //     <RoundedRectangle />
+    //     <RoundedRectangle bg='#ff0000' style={{ marginVertical: 10 }}/>
+    //     <RoundedRectangle width={100} height={400} style={{ marginVertical: 10 }}/>
+    //
+    //
+    //
+    //
+    //
+    //     {/* <View style={{ height: 100, width: '95%', backgroundColor: '#d1d1d1', borderRadius: 20, shadowColor: '#000', shadowOffset: { width: 10, height: 10 }, shadowOpacity: 1  }}>
+    //       <View style={{ borderRadius: 20, height: '100%', width: '100%', overflow: 'hidden'}}>
+    //         <View style={{ height: 30, width: '100%', backgroundColor: 'red' }}>
+    //
+    //         </View>
+    //       </View>
+    //     </View> */}
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //   </SafeAreaView>
+    //
+    // );
+
+
+
+
+
+
+
+
+
+
+
+
     return (
       <SafeAreaView>
         <Screen>

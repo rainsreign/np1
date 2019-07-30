@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 
 
@@ -23,7 +23,7 @@ const Header = styled.View`
 `;
 
 const HomeHeader = styled.Text`
-  font-size: 26px;
+  font-size: 30px;
   color: #313131;
   font-weight: bold;
 `;
@@ -47,22 +47,28 @@ const NBText = styled.Text`
 `;
 
 const WinningNum = styled.View`
-  background-color: #efefef;
+  background-color: #fff;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin-right: 10px;
   margin-left: 10px;
-  border-radius: 25px;
+  border-radius: 12px;
   margin-top: 10px;
+
   shadow-color: black;
-  shadow-offset: 10px 15px;
-  shadow-opacity: 1;
-  shadow-radius: 15px;
-  elevation: 15;
+  shadow-offset: 0px 5px;
+  shadow-opacity: 0.2;
+  shadow-radius: 10px;
+  ${'' /* overflow: hidden; */}
+  ${'' /* elevation: 15; */}
 `;
 
+const Container = styled.View`
+  border-radius: 12px;
+  overflow: hidden;
+`;
 
 const CurrentWinningNum = styled.View`
   background-color: #efefef;
@@ -101,12 +107,14 @@ const PWinningNum = styled.View`
 `;
 
 const HeaderJText = styled.Text`
-  padding-top: 5px;
-  height: 30;
+  padding-top: 12px;
+  padding-bottom: 12px;
   width: 100%;
-  background-color: #FEE05A;
-  padding-left: 20px;
+  background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
+  padding-left: 4%;
   font-weight: bold;
+  font-size: 18px;
+  color: #fff;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
 `;
@@ -146,12 +154,14 @@ const DrawingDate = styled.Text`
 const JPAmtDesc = styled.Text`
   align-self: center;
   margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 const EstJPAmt = styled.Text`
   align-self: center;
   font-size: 26px;
   font-weight: bold;
+  margin-top: 10px;
   margin-bottom: 15px;
 `;
 
@@ -181,17 +191,17 @@ const NumbersList = styled.View`
 const Num1 = styled.View`
   height: 40;
   width: 40;
-  text-align: center;
+  ${'' /* text-align: center; */}
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-radius: 20px;
   background-color: white;
-  shadow-offset: 5px 10px;
-  shadow-opacity: .75;
-  shadow-radius: 2px;
-  elevation: 5;
-  padding-top: 10px;
+  shadow-offset: 0px 4px;
+  shadow-opacity: 0.1;
+  shadow-radius: 4px;
+  ${'' /* elevation: 5; */}
+  ${'' /* padding-top: 10px; */}
 `;
 
 const Num6 = styled.View`
@@ -199,19 +209,20 @@ const Num6 = styled.View`
   width: 40;
   text-align: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-radius: 20px;
   background-color: red;
-  shadow-offset: 5px 10px;
-  shadow-opacity: .75;
-  shadow-radius: 2px;
-  elevation: 10;
-  padding-top: 10px;
+  shadow-offset: 0px 4px;
+  shadow-opacity: 0.1;
+  shadow-radius: 4px;
+  ${'' /* elevation: 5; */}
+  ${'' /* padding-top: 10px; */}
 `;
 
 const NumText = styled.Text`
   font-weight: bold;
+  color: ${(props) => props.color ? props.color : '#000'};
 `;
 
 const PPNum = styled.Text`
@@ -245,17 +256,17 @@ const Navbar = styled.View`
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 5px;
-  background-color: #efefef;
-  shadow-offset: 10px 15px;
+  background-color: #fff;
+  ${'' /* shadow-offset: 10px 15px;
   shadow-opacity: .8;
   shadow-radius: 15px;
-  elevation: 24;
+  elevation: 24; */}
 `;
 
 const IconB = styled.View`
   height: 25;
   width: auto;
-  background-color: #efefef;
+  background-color: transparent;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -385,7 +396,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View>
+      <SafeAreaView>
         <Screen>
           <Header>
             <HomeHeader>Home</HomeHeader>
@@ -393,31 +404,38 @@ export default class Home extends React.Component {
           </Header>
             <ScrollView style={{ backgroundColor: '#fff'}}>
               <WinningNum>
-                <HeaderJText>Upcoming Jackpot</HeaderJText>
-                <DrawingDate>Wednesday July 14, 2019</DrawingDate>
-                <JPAmtDesc>Annuity/Cash Value</JPAmtDesc>
-                <EstJPAmt>$329 Million/$201.2 Million</EstJPAmt>
+                <Container>
+                  <HeaderJText backgroundColor='#212121'>Upcoming Jackpot</HeaderJText>
+                  <View style={{ paddingVertical: 14 }}>
+                    <DrawingDate>Wednesday July 14, 2019</DrawingDate>
+                    <JPAmtDesc>Annuity/Cash Value</JPAmtDesc>
+                    <EstJPAmt>$329 Million/$201.2 Million</EstJPAmt>
+                  </View>
+
+                </Container>
               </WinningNum>
-              <CurrentWinningNum>
-                <HeaderWText>Winning Numbers</HeaderWText>
-                <DrawingDate>Wednesday July 01, 2019</DrawingDate>
-                <NumbersList>
-                  <Num1><NumText>21</NumText></Num1>
-                  <Num1><NumText>3</NumText></Num1>
-                  <Num1><NumText>15</NumText></Num1>
-                  <Num1><NumText>12</NumText></Num1>
-                  <Num1><NumText>27</NumText></Num1>
-                  <Num6><NumText>30</NumText></Num6>
-                </NumbersList>
-                <PPNum>Power Play: 3</PPNum>
-                <JPAmtDesc>Annuity/Cash Value</JPAmtDesc>
-                <EstCashAmt>$163 Million/$97.2 Million</EstCashAmt>
-                <JPWinners>NO JACKPOT WINNERS</JPWinners>
-              </CurrentWinningNum>
-              <HeaderPWText>Previous Numbers</HeaderPWText>
+              <WinningNum>
+                <Container>
+                  <HeaderJText backgroundColor='#ff0000'>Winning Numbers</HeaderJText>
+                  <DrawingDate>Wednesday July 01, 2019</DrawingDate>
+                  <NumbersList>
+                    <Num1><NumText>21</NumText></Num1>
+                    <Num1><NumText>3</NumText></Num1>
+                    <Num1><NumText>15</NumText></Num1>
+                    <Num1><NumText>12</NumText></Num1>
+                    <Num1><NumText>27</NumText></Num1>
+                    <Num6><NumText color='#fff'>30</NumText></Num6>
+                  </NumbersList>
+                  <PPNum>Power Play: 3</PPNum>
+                  <JPAmtDesc>Annuity/Cash Value</JPAmtDesc>
+                  <EstCashAmt>$163 Million/$97.2 Million</EstCashAmt>
+                  <JPWinners>NO JACKPOT WINNERS</JPWinners>
+                </Container>
+              </WinningNum>
+              {/* <HeaderPWText>Previous Numbers</HeaderPWText> */}
               {
                 this.state.previousWinNumberArray.map(item => (
-                  <PWinningNum>
+                  <WinningNum>
                     <DrawingDate>Wednesday June 23, 2019</DrawingDate>
                     <NumbersList>
                       <Num1><NumText>{item.number1}</NumText></Num1>
@@ -425,32 +443,35 @@ export default class Home extends React.Component {
                       <Num1><NumText>{item.number3}</NumText></Num1>
                       <Num1><NumText>{item.number4}</NumText></Num1>
                       <Num1><NumText>{item.number5}</NumText></Num1>
-                      <Num6><NumText>{item.specialNumber1}</NumText></Num6>
+                      <Num6><NumText color='#fff'>{item.specialNumber1}</NumText></Num6>
                     </NumbersList>
                     <PPNum><Text>Power Play: {item.powerPlayNumber}</Text></PPNum>
                     <JPAmtDesc>Annuity/Cash Value</JPAmtDesc>
                     <EstCashAmt><Text>${item.annuityAmount} Million/${item.cashAmount} Million</Text></EstCashAmt>
                     <MoreNum>View More...</MoreNum>
-                  </PWinningNum>
+                  </WinningNum>
                 ))
               }
 
             </ScrollView>
           <Navbar>
             <IconB>
-              <IconImg source={require('../media/home.png')}/>
+              <IconImg />
+              {/* <IconImg source={require('../media/home.png')}/> */}
               <IconText>Home</IconText>
             </IconB>
             <IconB>
-              <IconImg2 source={require('../media/userticketsbutton.png')}/>
+              <IconImg />
+              {/* <IconImg2 source={require('../media/userticketsbutton.png')}/> */}
               <IconText>My Tickets</IconText>
             </IconB>
             <IconB>
-              <IconImg source={require('../media/cashoutbutton.png')}/>
+              <IconImg />
+              {/* <IconImg source={require('../media/cashoutbutton.png')}/> */}
               <IconText>Cash Out</IconText></IconB>
           </Navbar>
         </Screen>
-      </View>
+      </SafeAreaView>
     );
   }
 }

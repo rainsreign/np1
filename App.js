@@ -7,7 +7,6 @@ import Home from './pages/Home.js';
 import UserLottery from './pages/UserLottery.js';
 import Buy from './pages/Buy.js';
 import CheckWin from './pages/CheckWin.js';
-import MyLotto from './pages/MyLotto.js';
 import CashOut from './pages/CashOut.js';
 import Amplify, { Auth } from 'aws-amplify';
 import axios from 'axios';
@@ -57,11 +56,12 @@ export default class App extends React.Component {
 
 
   render() {
+
     return (
       // <Login />
       // <SignUp />
-      // <Home />
-      <UserLottery />
+      <Home />
+      // <UserLottery />
     );
   }
 }

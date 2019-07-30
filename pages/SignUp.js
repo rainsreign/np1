@@ -4,20 +4,35 @@ import styled from 'styled-components/native';
 
 
 const Screen = styled.View`
-  background-color: #efefef;
+  background-color: #FEE05A;
   height: 100%;
   width: 100%;
 `;
 
 const Header = styled.View`
-  height: 200;
+  height: 100;
   width: 100%;
+`;
+
+const SignUpForm = styled.View`
+  height: auto;
+  margin-top: 100;
+  width: auto;
+  background-color: #efefef;
+  border-radius: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  shadow-color: black;
+  shadow-offset: 10px 15px;
+  shadow-opacity: 1;
+  shadow-radius: 15px;
+  elevation: 10;
 `;
 
 const SignIn = styled.Text`
   font-size: 36px;
   text-align: center;
-  padding-top: 130px;
+  margin-top: 25px;
 `;
 
 const Body = styled.View`
@@ -36,55 +51,60 @@ const Name = styled.TextInput`
   border-width: 1px;
   border-radius: 15px;
   padding-left: 15px;
-  padding-top: 13px;
 `;
 
-const Phone = styled.Text`
+const Phone = styled.TextInput`
   height: 50;
   width: 300;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
   padding-left: 15px;
-  padding-top: 13px;
 `;
 
-const Birthdate = styled.Text`
+const Birthdate = styled.TextInput`
   height: 50;
   width: 300;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
   padding-left: 15px;
-  padding-top: 13px;
 `;
 
-const UserT = styled.Text`
+const UserT = styled.TextInput`
   height: 50;
   width: 300;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
   padding-left: 15px;
-  padding-top: 13px;
 `;
 
-const PassT = styled.Text`
+const PassT = styled.TextInput`
   height: 50;
   width: 300;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
   padding-left: 15px;
-  padding-top: 13px;
 `;
 
 const LoginB = styled.View`
   height: 50;
   width: 150;
-  border-style: solid;
-  border-width: 1px;
   border-radius: 15px;
+  background-color: #FEE05A;
+  shadow-color: black;
+  shadow-offset: 10px 15px;
+  shadow-opacity: 1;
+  shadow-radius: 15px;
+  elevation: 10;
+`;
+
+const LoginText = styled.Text`
+  font-size: 26px;
+  align-self: center;
+  padding-top: 5px;
 `;
 
 const Footer = styled.View`
@@ -98,6 +118,7 @@ const Footer = styled.View`
 
 const Back = styled.Text`
   font-size: 20px;
+  color: #282828;
 `;
 
 {/* <View style={{ height: 200, width: '100%', backgroundColor: '#ff0000' }}>
@@ -106,7 +127,11 @@ const Back = styled.Text`
 
 export default class SignUp extends React.Component {
   state = {
-    text: ''
+    name: '',
+    usertext: '',
+    passtext: '',
+    phonetext: '',
+    birthdaytext: ''
   };
 
   // this.setState({ text: 'Gladys' })
@@ -115,21 +140,39 @@ export default class SignUp extends React.Component {
     return (
       <View>
         <Screen>
-          <Header>
-            <SignIn>Sign Up</SignIn>
-          </Header>
-          <Body>
-            <Name
-              placeholder='Full Name'
-              placeholderTextColor='#000000'
-              onChangeText={(text) => this.setState({ text: text })}
-              value={this.state.text}/>
-            <UserT>Username or Email</UserT>
-            <PassT>Password</PassT>
-            <Phone>Phone Number</Phone>
-            <Birthdate>Birthdate</Birthdate>
-            <LoginB></LoginB>
-          </Body>
+          <SignUpForm>
+            <Header>
+              <SignIn>Sign Up</SignIn>
+            </Header>
+            <Body>
+              <Name
+                placeholder='Full Name'
+                placeholderTextColor='#525252'
+                onChangeText={(text) => this.setState({ name: text })}
+                value={this.state.name}/>
+              <UserT
+                placeholder='Email'
+                placeholderTextColor='#525252'
+                onChangeText={(text) => this.setState({ usertext: text })}
+                value={this.state.usertext}/>
+              <PassT
+                placeholder='Password'
+                placeholderTextColor='#525252'
+                onChangeText={(text) => this.setState({ passtext: text })}
+                value={this.state.passtext}/>
+              <Phone
+                placeholder='Phone Number'
+                placeholderTextColor='#525252'
+                onChangeText={(text) => this.setState({ phonetext: text })}
+                value={this.state.phonetext}/>
+              <Birthdate
+                placeholder='Birthday'
+                placeholderTextColor='#525252'
+                onChangeText={(text) => this.setState({ birthdaytext: text })}
+                value={this.state.birthdaytext}/>
+              <LoginB><LoginText>Submit</LoginText></LoginB>
+            </Body>
+          </SignUpForm>
           <Footer>
             <Back>Back</Back>
           </Footer>

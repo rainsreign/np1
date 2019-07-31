@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 
 
 const Screen = styled.View`
-  background-color: #FEE05A;
+  background-color: red;
   height: 100%;
   width: 100%;
 `;
@@ -23,8 +23,8 @@ const SignUpForm = styled.View`
   margin-right: 15px;
   margin-left: 15px;
   shadow-color: black;
-  shadow-offset: 10px 15px;
-  shadow-opacity: 1;
+  shadow-offset: 0px 15px;
+  shadow-opacity: .2;
   shadow-radius: 15px;
   elevation: 10;
 `;
@@ -93,10 +93,10 @@ const LoginB = styled.View`
   height: 50;
   width: 150;
   border-radius: 15px;
-  background-color: #FEE05A;
+  background-color: black;
   shadow-color: black;
-  shadow-offset: 10px 15px;
-  shadow-opacity: 1;
+  shadow-offset: 0px 15px;
+  shadow-opacity: .2;
   shadow-radius: 15px;
   elevation: 10;
 `;
@@ -105,6 +105,7 @@ const LoginText = styled.Text`
   font-size: 26px;
   align-self: center;
   padding-top: 5px;
+  color: white;
 `;
 
 const Footer = styled.View`
@@ -118,7 +119,7 @@ const Footer = styled.View`
 
 const Back = styled.Text`
   font-size: 20px;
-  color: #282828;
+  color: black;
 `;
 
 {/* <View style={{ height: 200, width: '100%', backgroundColor: '#ff0000' }}>

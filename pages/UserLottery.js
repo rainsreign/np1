@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 
+const borderRadius = '12px';
 
 const Screen = styled.View`
-  background-color: #efefef;
+  background-color: #5C5C5C;
   height: 100%;
   width: 100%;
 `;
 
 const Header = styled.View`
-  background-color: white;
   height: 80;
   width: 100%;
   flex-direction: row;
@@ -19,57 +19,108 @@ const Header = styled.View`
   padding-left: 20px;
   padding-top: 25px;
   padding-right: 20px;
-  background-color: #6CF4C0;
+  background-color: #fff;
 `;
 
-const Jackpot = styled.View`
-  background-color: white;
-  height: auto;
-  width: 100%;
+const HomeHeader = styled.Text`
+  font-size: 30px;
+  color: #313131;
+  font-weight: bold;
 `;
 
-const HeaderText = styled.Text`
-  padding-top: 5px;
-  height: 30;
+const NBText = styled.Text`
+  font-size: 40px;
+  color: #212121;
+`;
+
+const TopInfo = styled.View`
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: #fff;
+`;
+
+const TopBoxes = styled.View`
+  background-color: #fff;
+  height: 120;
+  width: 170;
+  border-radius: ${borderRadius};
+  shadow-color: black;
+  shadow-offset: 0px 5px;
+  shadow-opacity: 0.2;
+  shadow-radius: 10px;
+  elevation: 15;
+`;
+
+const HeaderTText = styled.Text`
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ff0000;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+`;
+
+const WinningNum = styled.View`
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: ${borderRadius};
+  margin-top: 10px;
+  shadow-color: black;
+  shadow-offset: 0px 5px;
+  shadow-opacity: 0.2;
+  shadow-radius: 10px;
+  elevation: 15;
+`;
+
+const Container = styled.View`
+  border-radius: ${borderRadius};
+  overflow: hidden;
+`;
+
+const HeaderJText = styled.Text`
+  padding-top: 12px;
+  padding-bottom: 12px;
   width: 100%;
-  background-color: #efefef;
+  background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
   padding-left: 10px;
   font-weight: bold;
+  font-size: 18px;
+  color: #fff;
 `;
 
 const DrawingDate = styled.Text`
   align-self: center;
-  padding-top: 15px;
+  margin-top: 15px;
 `;
 
-const JPAmtDesc = styled.Text`
+const TotalCashAmt = styled.Text`
   align-self: center;
-  margin-top: 10px;
-`;
-
-const EstJPAmt = styled.Text`
-  align-self: center;
-  font-size: 26px;
+  margin-top: 9px;
+  font-size: 40px;
   font-weight: bold;
-  margin-bottom: 15px;
-`;
-
-const EstCashAmt = styled.Text`
-  align-self: center;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
 `;
 
 const MyTickets = styled.View`
   background-color: white;
   height: 100;
-  width: 100%;
-`;
-
-const WinningNum = styled.View`
-  background-color: white;
-  height: auto;
   width: 100%;
 `;
 
@@ -86,51 +137,44 @@ const NumbersList = styled.View`
 const Num1 = styled.View`
   height: 40;
   width: 40;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
-  background-color: #efefef;
-`;
-
-const Num2 = styled.View`
-  height: 40;
-  width: 40;
-  border-radius: 20px;
-  background-color: #efefef;
-`;
-
-const Num3 = styled.View`
-  height: 40;
-  width: 40;
-  border-radius: 20px;
-  background-color: #efefef;
-`;
-
-const Num4 = styled.View`
-  height: 40;
-  width: 40;
-  border-radius: 20px;
-  background-color: #efefef;
-`;
-
-const Num5 = styled.View`
-  height: 40;
-  width: 40;
-  border-radius: 20px;
-  background-color: #efefef;
+  background-color: white;
+  shadow-offset: 0px 4px;
+  shadow-opacity: 0.1;
+  shadow-radius: 4px;
+  elevation: 5;
 `;
 
 const Num6 = styled.View`
   height: 40;
   width: 40;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   background-color: red;
+  shadow-offset: 0px 4px;
+  shadow-opacity: 0.1;
+  shadow-radius: 4px;
+  elevation: 5;
+`;
+
+const NumText = styled.Text`
+  font-weight: bold;
+  color: ${(props) => props.color ? props.color : '#000'};
 `;
 
 const PPNum = styled.Text`
   align-self: center;
   font-weight: bold;
+  padding-bottom: 3px;
 `;
 
-const JPWinners = styled.Text`
+const CashAward = styled.Text`
   align-self: center;
   padding-bottom: 15px
 `;
@@ -147,110 +191,162 @@ const MoreNum = styled.Text`
 const Navbar = styled.View`
   position: absolute;
   bottom: 0;
-  background-color: white;
   height: 60;
-  width: 100%;
+  left: 0;
+  right: 0;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-left: 40px;
   padding-right: 40px;
-  background-color: #6CF4C0;
+  padding-bottom: 5px;
+  background-color: #fff;
 `;
 
-const HomeB = styled.View`
+const IconB = styled.View`
   height: 25;
-  width: 35;
-  background-color: #efefef;
+  width: auto;
+  background-color: transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const BuyB = styled.View`
-  height: 25;
-  width: 35;
-  background-color: #efefef;
-`;
-
-const CashOutB = styled.View`
-  height: 30;
-  width: 35;
-  background-color: #efefef;
+const IconText = styled.Text`
+  font-size: 12px;
+  font-weight: bold;
 `;
 
 export default class Home extends React.Component {
   state = {
-    myTicketsArray: [
+    previousWinNumberArray: [
+      {
+        number1: 2,
+        number2: 3,
+        number3: 4,
+        number4: 5,
+        number5: 6,
+        specialNumber1: 8,
+        powerPlayNumber: 2,
+        cashAwardNumber: 0
+      },
       {
         number1: 5,
-        number2: 10,
-        number3: 2,
+        number2: 7,
+        number3: 8,
+        number4: 9,
+        number5: 13,
+        specialNumber1: 23,
+        powerPlayNumber: 5,
+        cashAwardNumber: 26
+      },
+      {
+        number1: 4,
+        number2: 6,
+        number3: 22,
         number4: 26,
-        number5: 17,
+        number5: 30,
+        specialNumber1: 32,
+        powerPlayNumber: 10,
+        cashAwardNumber: 120
+      },
+      {
+        number1: 2,
+        number2: 3,
+        number3: 4,
+        number4: 5,
+        number5: 6,
         specialNumber1: 8,
+        powerPlayNumber: 1,
+        cashAwardNumber: 0
       },
       {
-        number1: 18,
-        number2: 1,
-        number3: 26,
-        number4: 21,
-        number5: 19,
-        specialNumber1: 9,
+        number1: 5,
+        number2: 7,
+        number3: 8,
+        number4: 9,
+        number5: 13,
+        specialNumber1: 23,
+        powerPlayNumber: 22,
+        cashAwardNumber: 5
       },
       {
-        number1: 7,
-        number2: 2,
-        number3: 29,
-        number4: 11,
-        number5: 12,
-        specialNumber1: 3,
-      },
-    ]
-  }
+        number1: 4,
+        number2: 6,
+        number3: 22,
+        number4: 26,
+        number5: 30,
+        specialNumber1: 32,
+        powerPlayNumber: 14,
+        cashAwardNumber: 0
+      }
+    ],
+  };
+
   render() {
-    // console.log(this.state)
-    return (
-      <View>
+  return (
+      <SafeAreaView>
         <Screen>
           <Header>
+            <HomeHeader>My Tickets</HomeHeader>
+            <NBText> + </NBText>
           </Header>
-            <ScrollView>
-                <HeaderText>Previous Numbers</HeaderText>
-                <WinningNum>
-                  <DrawingDate>Wednesday June 23, 2019</DrawingDate>
+            <ScrollView style={{ backgroundColor: '#fff'}}>
+                <TopInfo>
+                <TopBoxes>
+                  <Container>
+                    <HeaderTText backgroundColor='#ff0000'>Current Balance</HeaderTText>
+                    <View style={{ paddingBottom: 4 }}>
+                      <TotalCashAmt>$431</TotalCashAmt>
+                    </View>
+                  </Container>
+                </TopBoxes>
+                <TopBoxes>
+                  <Container>
+                    <HeaderTText backgroundColor='#ff0000'>Winning Tickets</HeaderTText>
+                    <View style={{ paddingBottom: 4 }}>
+                      <TotalCashAmt>4</TotalCashAmt>
+                    </View>
+                  </Container>
+                </TopBoxes>
+              </TopInfo>
+              <WinningNum>
+                <Container>
+                  <HeaderJText backgroundColor='#212121'>Ticket History (6)</HeaderJText>
+                  <DrawingDate>Wednesday July 01, 2019</DrawingDate>
                   <NumbersList>
-                    <Num1><Text>{this.state.myTicketsArray[0].number1}</Text></Num1>
-                    <Num1><Text>{this.state.myTicketsArray[0].number2}</Text></Num1>
-                    <Num1><Text>{this.state.myTicketsArray[0].number3}</Text></Num1>
-                    <Num1><Text>{this.state.myTicketsArray[0].number4}</Text></Num1>
-                    <Num1><Text>{this.state.myTicketsArray[0].number5}</Text></Num1>
-                    <Num6><Text>{this.state.myTicketsArray[0].specialNumber1}</Text></Num6>
+                    <Num1><NumText>21</NumText></Num1>
+                    <Num1><NumText>3</NumText></Num1>
+                    <Num1><NumText>15</NumText></Num1>
+                    <Num1><NumText>12</NumText></Num1>
+                    <Num1><NumText>27</NumText></Num1>
+                    <Num6><NumText color='#fff'>30</NumText></Num6>
                   </NumbersList>
-                  <MoreNum>View More...</MoreNum>
-                </WinningNum>
-
-                {
-                  this.state.myTicketsArray.map(item => (
+                  <PPNum>Power Play: 3</PPNum>
+                  <CashAward>Cash Award: $280</CashAward>
+                </Container>
+              </WinningNum>
+            {
+                this.state.previousWinNumberArray.map(item => (
                   <WinningNum>
                     <DrawingDate>Wednesday June 23, 2019</DrawingDate>
                     <NumbersList>
-                      <Num1><Text>{item.number1}</Text></Num1>
-                      <Num1><Text>{item.number2}</Text></Num1>
-                      <Num1><Text>{item.number3}</Text></Num1>
-                      <Num1><Text>{item.number4}</Text></Num1>
-                      <Num1><Text>{item.number5}</Text></Num1>
-                      <Num6><Text>{item.specialNumber1}</Text></Num6>
+                      <Num1><NumText>{item.number1}</NumText></Num1>
+                      <Num1><NumText>{item.number2}</NumText></Num1>
+                      <Num1><NumText>{item.number3}</NumText></Num1>
+                      <Num1><NumText>{item.number4}</NumText></Num1>
+                      <Num1><NumText>{item.number5}</NumText></Num1>
+                      <Num6><NumText color='#fff'>{item.specialNumber1}</NumText></Num6>
                     </NumbersList>
+                    <PPNum><Text>Power Play: {item.powerPlayNumber}</Text></PPNum>
+                    <CashAward><Text>Cash Award: ${item.cashAwardNumber}</Text></CashAward>
                   </WinningNum>
                 ))
-                }
+              }
 
             </ScrollView>
-          <Navbar>
-            <HomeB></HomeB>
-            <BuyB></BuyB>
-            <CashOutB></CashOutB>
-          </Navbar>
         </Screen>
-      </View>
+      </SafeAreaView>
     );
   }
 }

@@ -8,8 +8,10 @@ import UserLottery from './pages/UserLottery.js';
 import Buy from './pages/Buy.js';
 import CheckWin from './pages/CheckWin.js';
 import CashOut from './pages/CashOut.js';
+import Account from './pages/Account.js';
 import Amplify, { Auth } from 'aws-amplify';
 import axios from 'axios';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
 
 Amplify.configure({
   Auth: {
@@ -22,6 +24,25 @@ Amplify.configure({
     mandatorySignIn: false,
   }
 });
+
+
+const AppNavigator = createBottomTabNavigator(
+  {
+    Home: {
+      screen: Home
+    },
+    'My Tickets': {
+      screen: UserLottery
+    },
+    Account: {
+      screen: Account
+    }
+  }, {
+    headerMode: 'none'
+  }
+);
+
+const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -58,10 +79,7 @@ export default class App extends React.Component {
   render() {
 
     return (
-      // <Login />
-      // <SignUp />
-      <Home />
-      // <UserLottery />
+      <AppContainer />
     );
   }
 }

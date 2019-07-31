@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
 
+const borderRadius = '12px';
 
 const Screen = styled.View`
   background-color: #5C5C5C;
@@ -19,7 +20,6 @@ const Header = styled.View`
   padding-top: 25px;
   padding-right: 20px;
   background-color: #fff;
-
 `;
 
 const HomeHeader = styled.Text`
@@ -54,19 +54,18 @@ const WinningNum = styled.View`
   bottom: 0;
   margin-right: 10px;
   margin-left: 10px;
-  border-radius: 12px;
+  border-radius: ${borderRadius};
   margin-top: 10px;
-
   shadow-color: black;
   shadow-offset: 0px 5px;
   shadow-opacity: 0.2;
   shadow-radius: 10px;
   ${'' /* overflow: hidden; */}
-  ${'' /* elevation: 15; */}
+  elevation: 15;
 `;
 
 const Container = styled.View`
-  border-radius: 12px;
+  border-radius: ${borderRadius};
   overflow: hidden;
 `;
 
@@ -115,36 +114,10 @@ const HeaderJText = styled.Text`
   font-weight: bold;
   font-size: 18px;
   color: #fff;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
 `;
 
-const HeaderWText = styled.Text`
-  padding-top: 5px;
-  height: 30;
-  width: 100%;
-  background-color: #52F750;
-  padding-left: 20px;
-  font-weight: bold;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
-`;
-
-const HeaderPWText = styled.Text`
-  padding-top: 5px;
-  height: 30;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin-right: 10px;
-  margin-left: 10px;
-  background-color: #52F750;
-  padding-left: 20px;
-  font-weight: bold;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
-`;
+// border-top-right-radius: 25px;
+// border-top-left-radius: 25px;
 
 const DrawingDate = styled.Text`
   align-self: center;
@@ -200,7 +173,7 @@ const Num1 = styled.View`
   shadow-offset: 0px 4px;
   shadow-opacity: 0.1;
   shadow-radius: 4px;
-  ${'' /* elevation: 5; */}
+  elevation: 5;
   ${'' /* padding-top: 10px; */}
 `;
 
@@ -216,7 +189,7 @@ const Num6 = styled.View`
   shadow-offset: 0px 4px;
   shadow-opacity: 0.1;
   shadow-radius: 4px;
-  ${'' /* elevation: 5; */}
+  elevation: 5;
   ${'' /* padding-top: 10px; */}
 `;
 
@@ -268,20 +241,8 @@ const IconB = styled.View`
   width: auto;
   background-color: transparent;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-`;
-
-const IconImg = styled.Image`
-  width: 27;
-  height: 27;
-`;
-
-const IconImg2 = styled.Image`
-  width: 23;
-  height: 23;
-  margin-bottom: 4px;
 `;
 
 const IconText = styled.Text`
@@ -297,6 +258,16 @@ const RoundedRectangle = styled.View`
   background-color: ${props => props.bg ? props.bg : '#d1d1d1'};
 `;
 
+const Box = styled.View`
+  width: 100px;
+  height: 100px;
+  backgroundColor: red;
+`;
+
+const Box2 = styled(Box)`
+  backgroundColor: blue;
+
+`;
 
 export default class Home extends React.Component {
   state = {
@@ -406,19 +377,15 @@ export default class Home extends React.Component {
   render() {
 
 
+
+
     // return (
     //   <SafeAreaView style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
-    //
-    //
-    //
-    //     <RoundedRectangle />
+    //     {/* <RoundedRectangle />
     //     <RoundedRectangle bg='#ff0000' style={{ marginVertical: 10 }}/>
-    //     <RoundedRectangle width={100} height={400} style={{ marginVertical: 10 }}/>
-    //
-    //
-    //
-    //
-    //
+    //     <RoundedRectangle width={100} height={400} style={{ marginVertical: 10 }}/> */}
+    //     {/* <Box></Box>
+    //     <Box2></Box2> */}
     //     {/* <View style={{ height: 100, width: '95%', backgroundColor: '#d1d1d1', borderRadius: 20, shadowColor: '#000', shadowOffset: { width: 10, height: 10 }, shadowOpacity: 1  }}>
     //       <View style={{ borderRadius: 20, height: '100%', width: '100%', overflow: 'hidden'}}>
     //         <View style={{ height: 30, width: '100%', backgroundColor: 'red' }}>
@@ -426,33 +393,13 @@ export default class Home extends React.Component {
     //         </View>
     //       </View>
     //     </View> */}
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    //     {/* <Text style={{ fontFamily: 'San Francisco'}}>Gladys</Text> */}
+    //     {/* <Text style={{ fontFamily: 'serif'}}>Gladys</Text>
+    //     <Text style={{ fontFamily: 'Roboto'}}>Gladys</Text> */}
     //
     //   </SafeAreaView>
     //
     // );
-
-
-
-
-
-
-
-
-
-
 
 
     return (
@@ -514,22 +461,6 @@ export default class Home extends React.Component {
               }
 
             </ScrollView>
-          <Navbar>
-            <IconB>
-              <IconImg />
-              {/* <IconImg source={require('../media/home.png')}/> */}
-              <IconText>Home</IconText>
-            </IconB>
-            <IconB>
-              <IconImg />
-              {/* <IconImg2 source={require('../media/userticketsbutton.png')}/> */}
-              <IconText>My Tickets</IconText>
-            </IconB>
-            <IconB>
-              <IconImg />
-              {/* <IconImg source={require('../media/cashoutbutton.png')}/> */}
-              <IconText>Cash Out</IconText></IconB>
-          </Navbar>
         </Screen>
       </SafeAreaView>
     );

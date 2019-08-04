@@ -49,7 +49,6 @@ const TopInfo = styled.View`
 
 const TopBoxes = styled.View`
   background-color: #fff;
-  height: 120;
   width: 170;
   border-radius: ${borderRadius};
   shadow-color: black;
@@ -113,8 +112,9 @@ const DrawingDate = styled.Text`
 
 const TotalCashAmt = styled.Text`
   align-self: center;
-  margin-top: 9px;
-  font-size: 40px;
+  font-size: 36px;
+  margin-top: 14px;
+  margin-bottom: 14px;
   font-weight: bold;
 `;
 
@@ -296,7 +296,7 @@ export default class Home extends React.Component {
                 <TopBoxes>
                   <Container>
                     <HeaderTText backgroundColor='#ff0000'>Current Balance</HeaderTText>
-                    <View style={{ paddingBottom: 4 }}>
+                    <View style={{ }}>
                       <TotalCashAmt>$431</TotalCashAmt>
                     </View>
                   </Container>
@@ -304,7 +304,7 @@ export default class Home extends React.Component {
                 <TopBoxes>
                   <Container>
                     <HeaderTText backgroundColor='#ff0000'>Winning Tickets</HeaderTText>
-                    <View style={{ paddingBottom: 4 }}>
+                    <View style={{ }}>
                       <TotalCashAmt>4</TotalCashAmt>
                     </View>
                   </Container>

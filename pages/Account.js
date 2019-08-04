@@ -50,8 +50,8 @@ const CardHolder = styled.View`
   margin-top: 10px;
   shadow-color: black;
   shadow-offset: 0px 5px;
-  shadow-opacity: 0.2;
-  shadow-radius: 10px;
+  shadow-opacity: 0.1;
+  shadow-radius: 5px;
   elevation: 15;
 `;
 
@@ -124,7 +124,7 @@ const Row = styled.View`
   padding-right: 5px;
   border-bottom-width: .7px;
   border-style: solid;
-  border-color: #313131;
+  border-color: #d6d6d6;
 `;
 
 const Buttons = styled.Image`

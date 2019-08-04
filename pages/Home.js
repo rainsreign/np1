@@ -106,13 +106,13 @@ const PWinningNum = styled.View`
 `;
 
 const HeaderJText = styled.Text`
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   width: 100%;
   background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
   padding-left: 4%;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   color: #fff;
 `;
 
@@ -185,7 +185,7 @@ const Num6 = styled.View`
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  background-color: red;
+  background-color: #ff0000;
   shadow-offset: 0px 4px;
   shadow-opacity: 0.1;
   shadow-radius: 4px;

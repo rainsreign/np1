@@ -74,41 +74,13 @@ const Card = styled.View`
 `;
 
 const CardInfo = styled.View`
-
+  padding-top: 3px;
+  padding-bottom: 3px;
 `;
 
 const TransferText = styled.TextInput`
   width: 500;
-`;
-
-const Row = styled.View`
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin-right: 10px;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-
-const Buttons = styled.View`
-  height: 50;
-  width: 150;
-  border-radius: ${borderRadius};
-  background-color: #ff0000;
-  shadow-color: black;
-  shadow-offset: 0px 15px;
-  shadow-opacity: .2;
-  shadow-radius: 15px;
-  elevation: 10;
-  margin-top: 10px;
-`;
-
-const ButtonText = styled.Text`
-  font-size: 23px;
-  align-self: center;
-  padding-top: 8px;
-  color: #fff;
+  font-size: 16px;
 `;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -135,13 +107,14 @@ const IconB = styled.View`
   align-items: center;
   border-style: solid;
   border-width: .5px;
-  border-color: #111111;
+  border-color: #efefef;
 `;
 
 const IconText = styled.Text`
   font-size: 18px;
   font-weight: bold;
 `;
+
 
 export default class CashOut extends React.Component {
   state = {

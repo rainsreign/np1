@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 
 const Screen = styled.View`
-  background-color: red;
+  background-color: #000;
   height: 100%;
   width: 100%;
 `;
@@ -43,50 +43,38 @@ const Body = styled.View`
   height: 230;
   width: 100%;
   margin-bottom: 40px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
-const UserT = styled.TextInput`
-  height: 50;
-  width: 300;
+const InsertT = styled.TextInput`
+  height: 60;
+  width: 100%;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
-  padding-left: 15px;
-`;
-
-const PassT = styled.TextInput`
-  height: 50;
-  width: 300;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 15px;
-  padding-left: 15px;
-`;
-
-const ForgotPW = styled.Text`
-  align-self: flex-end;
-  flex-direction: row;
+  padding-left: 20px;
+  font-size: 16px;
 `;
 
 const LoginB = styled.View`
-  height: 50;
+  height: 60;
   width: 150;
-  border-radius: 20px;
-  background-color: black;
+  border-radius: 12px;
+  background-color: #ff0000;
   shadow-color: black;
   shadow-offset: 0px 15px;
   shadow-opacity: .2;
   shadow-radius: 15px;
   elevation: 10;
   margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const LoginText = styled.Text`
   font-size: 24px;
-  align-self: center;
-  padding-top: 8px;
   color: white;
 `;
 
@@ -101,6 +89,7 @@ const Footer = styled.View`
 
 const SignUp = styled.Text`
   font-size: 18px;
+  color: #fff;
 `;
 
 export default class LoginPage extends React.Component {
@@ -117,22 +106,21 @@ export default class LoginPage extends React.Component {
               <SignIn>Sign In</SignIn>
             </Header>
             <Body>
-              <UserT
+              <InsertT
                 placeholder='Email'
                 placeholderTextColor='#525252'
                 onChangeText={(text) => this.setState({ usertext: text })}
                 value={this.state.usertext}/>
-              <PassT
+              <InsertT
                 placeholder='Password'
                 placeholderTextColor='#525252'
                 onChangeText={(text) => this.setState({ passtext: text })}
                 value={this.state.passtext}/>
-              <ForgotPW>Forgot Password?</ForgotPW>
               <LoginB><LoginText>Let's Go!</LoginText></LoginB>
             </Body>
           </LoginForm>
           <Footer>
-            <SignUp>Don't have an account? <Text backgroundColor='#fff'>Signup</Text></SignUp>
+            <SignUp>Don't have an account? <Text fontWeight='bold'>Signup</Text></SignUp>
           </Footer>
         </Screen>
       </View>

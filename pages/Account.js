@@ -120,11 +120,11 @@ const Row = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 5px;
-  border-bottom-width: .7px;
+  padding-left: 15px;
+  padding-right: 10px;
+  border-bottom-width: .8px;
   border-style: solid;
-  border-color: #313131;
+  border-color: #efefef;
 `;
 
 const Buttons = styled.Image`

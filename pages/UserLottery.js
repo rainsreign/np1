@@ -49,20 +49,25 @@ const TopInfo = styled.View`
 
 const TopBoxes = styled.View`
   background-color: #fff;
-  height: 120;
-  width: 170;
+  height: auto;
+  width: auto;
   border-radius: ${borderRadius};
   shadow-color: black;
   shadow-offset: 0px 5px;
   shadow-opacity: 0.2;
   shadow-radius: 10px;
   elevation: 15;
+  padding-bottom: 8px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const HeaderTText = styled.Text`
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   padding-left: 15px;
+  padding-right: 15px;
   left: 0;
   right: 0;
   top: 0;
@@ -96,13 +101,13 @@ const Container = styled.View`
 `;
 
 const HeaderJText = styled.Text`
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   width: 100%;
   background-color: ${(props) => props.backgroundColor ? props.backgroundColor : 'transparent'};
   padding-left: 10px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   color: #fff;
 `;
 
@@ -296,7 +301,7 @@ export default class Home extends React.Component {
                 <TopBoxes>
                   <Container>
                     <HeaderTText backgroundColor='#ff0000'>Current Balance</HeaderTText>
-                    <View style={{ paddingBottom: 4 }}>
+                  <View style={{ paddingVertical: 3 }}>
                       <TotalCashAmt>$431</TotalCashAmt>
                     </View>
                   </Container>
@@ -304,7 +309,7 @@ export default class Home extends React.Component {
                 <TopBoxes>
                   <Container>
                     <HeaderTText backgroundColor='#ff0000'>Winning Tickets</HeaderTText>
-                    <View style={{ paddingBottom: 4 }}>
+                  <View style={{ paddingVertical: 3 }}>
                       <TotalCashAmt>4</TotalCashAmt>
                     </View>
                   </Container>

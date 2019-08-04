@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import styled from 'styled-components/native';
 import Login from './pages/Login.js';
 import SignUp from './pages/SignUp.js';
@@ -12,6 +12,7 @@ import Account from './pages/Account.js';
 import Amplify, { Auth } from 'aws-amplify';
 import axios from 'axios';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { Icon } from 'react-native-elements';
 
 Amplify.configure({
   Auth: {
@@ -29,16 +30,43 @@ Amplify.configure({
 const AppNavigator = createBottomTabNavigator(
   {
     Home: {
-      screen: Home
+      screen: Home,
+      navigationOptions: {
+        tabBarIcon:
+          <Icon
+            size={26}
+            name='home'
+            color='#ff0000'/>
+      },
     },
     'My Tickets': {
-      screen: UserLottery
+      screen: UserLottery,
+      navigationOptions: {
+        tabBarIcon:
+          <Icon
+            size={26}
+            name='view-carousel'
+            color='#ff0000'/>
+      },
     },
     Account: {
-      screen: Account
+      screen: Account,
+      navigationOptions: {
+        tabBarIcon:
+          <Icon
+            size={26}
+            name='account-box'
+            color='#ff0000'/>
+      }
     }
   }, {
-    headerMode: 'none'
+    tabBarOptions: {
+      activeTintColor: '#ff0000',
+      labelStyle: {
+        fontSize: 14,
+        fontWeight: '700'
+      }
+    }
   }
 );
 
@@ -77,9 +105,20 @@ export default class App extends React.Component {
 
 
   render() {
+    const page = 2;
 
     return (
-      <AppContainer />
+      // <React.Fragment>
+      //   { page == 0 ?
+      //     <Login />
+      //     :
+      //     page == 1 ?
+      //     <SignUp />
+      //     :
+      //     <AppContainer />
+      //   }
+      // </React.Fragment>
+      <Buy />
     );
   }
 }

@@ -60,11 +60,15 @@ const AppNavigator = createBottomTabNavigator(
       }
     }
   }, {
+    headerMode: 'none',
     tabBarOptions: {
       activeTintColor: '#ff0000',
       labelStyle: {
-        fontSize: 14,
-        fontWeight: '700'
+        fontSize: 12,
+        fontWeight: '500'
+      },
+      tabStyle: {
+        border: 'none'
       }
     }
   }
@@ -89,11 +93,12 @@ export default class App extends React.Component {
     // .then(data => console.log(data))
     // .catch(err => console.log(err));
 
-    // Auth.signIn({
-    //   username: 'gladys@nativeprototype.com', // Required, the username
-    //   password: '00000000', // Optional, the password
-    // }).then(user => console.log(user))
-    // .catch(err => console.log(err));
+    Auth.signIn({
+      username: 'gladys@nativeprototype.com', // Required, the username
+      password: '00000000', // Optional, the password
+    })
+    .then(user => console.log(user))
+    .catch(err => console.log(err));
 
     // {
     //   identityId: 'useast2f2jeofdkfn2e0fdksfs',

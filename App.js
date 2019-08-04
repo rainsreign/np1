@@ -32,31 +32,40 @@ const AppNavigator = createBottomTabNavigator(
     Home: {
       screen: Home,
       navigationOptions: {
-        tabBarIcon:
-          <Icon
-            size={26}
-            name='home'
-            color='#ff0000'/>
+        tabBarIcon: ({focused}) => {
+          return (
+            <Icon
+              size={26}
+              name='home'
+              color={focused ? '#ff0000' : '#000'}/>
+          );
+        }
       },
     },
     'My Tickets': {
       screen: UserLottery,
       navigationOptions: {
-        tabBarIcon:
-          <Icon
-            size={26}
-            name='view-carousel'
-            color='#ff0000'/>
+        tabBarIcon: ({focused}) => {
+          return (
+            <Icon
+              size={26}
+              name='view-carousel'
+              color={focused ? '#ff0000' : '#000'}/>
+          );
+        }
       },
     },
     Account: {
       screen: Account,
       navigationOptions: {
-        tabBarIcon:
-          <Icon
-            size={26}
-            name='account-box'
-            color='#ff0000'/>
+        tabBarIcon: ({focused}) => {
+          return (
+            <Icon
+              size={26}
+              name='account-box'
+              color={focused ? '#ff0000' : '#000'}/>
+          );
+        }
       }
     }
   }, {
@@ -113,17 +122,16 @@ export default class App extends React.Component {
     const page = 2;
 
     return (
-      // <React.Fragment>
-      //   { page == 0 ?
-      //     <Login />
-      //     :
-      //     page == 1 ?
-      //     <SignUp />
-      //     :
-      //     <AppContainer />
-      //   }
-      // </React.Fragment>
-      <Buy />
+      <React.Fragment>
+        { page == 0 ?
+          <Login />
+          :
+          page == 1 ?
+          <SignUp />
+          :
+          <AppContainer />
+        }
+      </React.Fragment>
     );
   }
 }

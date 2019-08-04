@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
+import Buy from './Buy';
 
 const borderRadius = '12px';
 
@@ -224,6 +225,7 @@ const IconText = styled.Text`
 
 export default class Home extends React.Component {
   state = {
+    newTicketModal: false,
     previousWinNumberArray: [
       {
         number1: 2,
@@ -288,70 +290,82 @@ export default class Home extends React.Component {
     ],
   };
 
-  render() {
-  return (
-      <SafeAreaView>
-        <Screen>
-          <Header>
-            <HomeHeader>My Tickets</HomeHeader>
-            <NBText> + </NBText>
-          </Header>
-            <ScrollView style={{ backgroundColor: '#fff'}}>
-                <TopInfo>
-                <TopBoxes>
-                  <Container>
-                    <HeaderTText backgroundColor='#ff0000'>Current Balance</HeaderTText>
-                    <View style={{ }}>
-                      <TotalCashAmt>$431</TotalCashAmt>
-                    </View>
-                  </Container>
-                </TopBoxes>
-                <TopBoxes>
-                  <Container>
-                    <HeaderTText backgroundColor='#ff0000'>Winning Tickets</HeaderTText>
-                    <View style={{ }}>
-                      <TotalCashAmt>4</TotalCashAmt>
-                    </View>
-                  </Container>
-                </TopBoxes>
-              </TopInfo>
-              <WinningNum>
-                <Container>
-                  <HeaderJText backgroundColor='#212121'>Ticket History (6)</HeaderJText>
-                  <DrawingDate>Wednesday July 01, 2019</DrawingDate>
-                  <NumbersList>
-                    <Num1><NumText>21</NumText></Num1>
-                    <Num1><NumText>3</NumText></Num1>
-                    <Num1><NumText>15</NumText></Num1>
-                    <Num1><NumText>12</NumText></Num1>
-                    <Num1><NumText>27</NumText></Num1>
-                    <Num6><NumText color='#fff'>30</NumText></Num6>
-                  </NumbersList>
-                  <PPNum>Power Play: 3</PPNum>
-                  <CashAward>Cash Award: $280</CashAward>
-                </Container>
-              </WinningNum>
-            {
-                this.state.previousWinNumberArray.map(item => (
-                  <WinningNum>
-                    <DrawingDate>Wednesday June 23, 2019</DrawingDate>
-                    <NumbersList>
-                      <Num1><NumText>{item.number1}</NumText></Num1>
-                      <Num1><NumText>{item.number2}</NumText></Num1>
-                      <Num1><NumText>{item.number3}</NumText></Num1>
-                      <Num1><NumText>{item.number4}</NumText></Num1>
-                      <Num1><NumText>{item.number5}</NumText></Num1>
-                      <Num6><NumText color='#fff'>{item.specialNumber1}</NumText></Num6>
-                    </NumbersList>
-                    <PPNum><Text>Power Play: {item.powerPlayNumber}</Text></PPNum>
-                    <CashAward><Text>Cash Award: ${item.cashAwardNumber}</Text></CashAward>
-                  </WinningNum>
-                ))
-              }
+  setTicketModal = (boolean) => {
+    this.setState({ newTicketModal: boolean });
+  }
 
-            </ScrollView>
-        </Screen>
-      </SafeAreaView>
+  render() {
+    return (
+      <React.Fragment>
+        { this.state.newTicketModal ?
+          <Buy setTicketModal={this.setTicketModal}/>
+          :
+          <SafeAreaView>
+            <Screen>
+              <Header>
+                <HomeHeader>My Tickets</HomeHeader>
+                <NBText onPress={() => this.setTicketModal(true)}> + </NBText>
+              </Header>
+                <ScrollView style={{ backgroundColor: '#fff'}}>
+                    <TopInfo>
+                    <TopBoxes>
+                      <Container>
+                        <HeaderTText backgroundColor='#ff0000'>Current Balance</HeaderTText>
+                        <View style={{ }}>
+                          <TotalCashAmt>$431</TotalCashAmt>
+                        </View>
+                      </Container>
+                    </TopBoxes>
+                    <TopBoxes>
+                      <Container>
+                        <HeaderTText backgroundColor='#ff0000'>Winning Tickets</HeaderTText>
+                        <View style={{ }}>
+                          <TotalCashAmt>4</TotalCashAmt>
+                        </View>
+                      </Container>
+                    </TopBoxes>
+                  </TopInfo>
+                  <WinningNum>
+                    <Container>
+                      <HeaderJText backgroundColor='#212121'>Ticket History (6)</HeaderJText>
+                      <DrawingDate>Wednesday July 01, 2019</DrawingDate>
+                      <NumbersList>
+                        <Num1><NumText>21</NumText></Num1>
+                        <Num1><NumText>3</NumText></Num1>
+                        <Num1><NumText>15</NumText></Num1>
+                        <Num1><NumText>12</NumText></Num1>
+                        <Num1><NumText>27</NumText></Num1>
+                        <Num6><NumText color='#fff'>30</NumText></Num6>
+                      </NumbersList>
+                      <PPNum>Power Play: 3</PPNum>
+                      <CashAward>Cash Award: $280</CashAward>
+                    </Container>
+                  </WinningNum>
+                {
+                    this.state.previousWinNumberArray.map(item => (
+                      <WinningNum>
+                        <DrawingDate>Wednesday June 23, 2019</DrawingDate>
+                        <NumbersList>
+                          <Num1><NumText>{item.number1}</NumText></Num1>
+                          <Num1><NumText>{item.number2}</NumText></Num1>
+                          <Num1><NumText>{item.number3}</NumText></Num1>
+                          <Num1><NumText>{item.number4}</NumText></Num1>
+                          <Num1><NumText>{item.number5}</NumText></Num1>
+                          <Num6><NumText color='#fff'>{item.specialNumber1}</NumText></Num6>
+                        </NumbersList>
+                        <PPNum><Text>Power Play: {item.powerPlayNumber}</Text></PPNum>
+                        <CashAward><Text>Cash Award: ${item.cashAwardNumber}</Text></CashAward>
+                      </WinningNum>
+                    ))
+                  }
+
+                </ScrollView>
+            </Screen>
+          </SafeAreaView>
+        }
+      </React.Fragment>
+
+
     );
   }
 }

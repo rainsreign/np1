@@ -263,11 +263,14 @@ export default class Buy extends React.Component {
           </Sum2>
           </BottomB>
           <Navbar>
+            <TouchableWithoutFeedback onPress={() => this.props.setTicketModal(false)}>
               <IconB>
                 <IconText>Cancel</IconText>
               </IconB>
+            </TouchableWithoutFeedback>
             <IconB>
-              <IconText>Purchase</IconText></IconB>
+              <IconText>Purchase</IconText>
+            </IconB>
           </Navbar>
         </Screen>
       </SafeAreaView>

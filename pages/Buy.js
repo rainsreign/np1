@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TouchableWithoutFeedback, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 
 const borderRadius = '12px';
@@ -201,6 +201,7 @@ export default class Buy extends React.Component {
           <Header>
             <HomeHeader>Buy a Ticket</HomeHeader>
           </Header>
+          <ScrollView style={{ backgroundColor: '#fff'}}>
           <WinningNum>
             <Container>
               <HeaderJText backgroundColor='#212121'>Choose Numbers</HeaderJText>
@@ -262,6 +263,7 @@ export default class Buy extends React.Component {
               <SumText2>$0</SumText2>
           </Sum2>
           </BottomB>
+          </ScrollView>
           <Navbar>
             <TouchableWithoutFeedback onPress={() => this.props.setTicketModal(false)}>
               <IconB>

@@ -66,10 +66,9 @@ const TopBoxes = styled.View`
 const HeaderTText = styled.Text`
   padding-top: 18px;
   padding-bottom: 18px;
-  padding-left: 15px;
-  padding-right: 15px;
-  left: 0;
-  right: 0;
+  padding-left: 18px;
+  padding-right: 18px;
+  width: 170;
   top: 0;
   bottom: 0;
   background-color: #ff0000;
